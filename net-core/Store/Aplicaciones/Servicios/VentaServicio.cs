@@ -27,7 +27,7 @@ namespace Store.Aplicaciones.Servicios {
 			
 			entidad.VentaDetalles.ForEach(detalle => {
 				var productoSeleccionado = repoProducto.SeleccionarPorID(detalle.productoId);
-				if (productoSeleccionado == null)
+				if (productoSeleccionado is null)
 					throw new NullReferenceException("No existe el producto");
 
 				

@@ -19,7 +19,7 @@ namespace Store.Infraestructura.Repositorios {
 
 		public void Anular(Guid entidadId) {
 			var ventaSeleccionada = db.Ventas.Where(c => c.ventaId == entidadId).FirstOrDefault();
-			if (ventaSeleccionada == null)
+			if (ventaSeleccionada is null)
 				throw new NullReferenceException("No existe la venta");
 
 			ventaSeleccionada.anulado = true;
