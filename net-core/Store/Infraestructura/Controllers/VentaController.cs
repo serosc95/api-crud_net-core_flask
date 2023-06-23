@@ -39,9 +39,9 @@ namespace Store.Infraestructura.Controllers {
 			return Ok("Se creo la venta correctamente");
 		}
 
-		//DELETE api/venta/{id}
-		[HttpDelete("{id}")]
-		public ActionResult Delete(Guid id) {
+		//PUT api/venta/{id}
+		[HttpPut("{id}")]
+		public ActionResult Put(Guid id) {
 			var servicio = CrearServicio();
 			servicio.Anular(id);
 			return Ok(string.Format("Se anulo la venta {0:d} correctamente", id));

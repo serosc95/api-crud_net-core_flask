@@ -12,7 +12,7 @@ namespace Store.Aplicaciones.Servicios {
 		}
 
 		public Producto Agregar(Producto entidad) {
-			if (entidad == null)
+			if (entidad is null)
 				throw new ArgumentNullException("Se requiere los datos del producto a agregar");
 
 			var resultProducto = repoProducto.Agregar(entidad);
@@ -21,7 +21,7 @@ namespace Store.Aplicaciones.Servicios {
 		}
 
 		public void Editar(Producto entidad) {
-			if (entidad == null)
+			if (entidad is null)
 				throw new ArgumentNullException("Se requiere los campos del producto a editar");
 
 			repoProducto.Editar(entidad);
