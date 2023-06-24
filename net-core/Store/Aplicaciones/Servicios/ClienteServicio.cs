@@ -38,6 +38,10 @@ namespace Store.Aplicaciones.Servicios {
 			return repoCliente.Listar();
 		}
 
+		public List<Cliente> ListarPagination(int pagination) {
+			return repoCliente.ListarPagination(pagination);
+		}
+
 		public Cliente SeleccionarPorID(Guid entidadId) {
 			return repoCliente.SeleccionarPorID(entidadId);
 		}

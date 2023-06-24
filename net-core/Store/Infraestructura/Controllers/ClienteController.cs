@@ -17,18 +17,10 @@ namespace Store.Infraestructura.Controllers {
 		}
 		
 		//GET api/cliente
-		[HttpGet]
-		public ActionResult<List<Cliente>> Get() {
+		[HttpGet("{pagination}")]
+		public ActionResult<List<Cliente>> Get(int pagination) {
 			var servicio = CrearServicio();
-			return Ok(servicio.Listar());
-		}
-
-		//GET api/cliente/{id}
-		[HttpGet("{id}")]
-		public ActionResult<Cliente> Get(Guid id) {
-			var servicio = CrearServicio();
-			return Ok(servicio.SeleccionarPorID(id));
-			
+			return Ok(servicio.ListarPagination(pagination));
 		}
 
 		//POST api/cliente

@@ -44,6 +44,11 @@ namespace Store.Infraestructura.Repositorios {
 			return db.Clientes.ToList();
 		}
 
+		public List<Cliente> ListarPagination(int pagination) {
+			int muestras = 1000;
+			return db.Clientes.Skip((pagination - 1) * muestras).Take(muestras).ToList();
+		}
+
 		public Cliente SeleccionarPorID(Guid entidadId) {
 			var clienteSeleccionado = db.Clientes.Where(c => c.clienteId == entidadId).FirstOrDefault();
 			return clienteSeleccionado;
