@@ -5,6 +5,8 @@ using Store.Infraestructura.Configs;
 namespace Store.Infraestructura.Contextos {
 	public class VentaContexto : DbContext {
 
+		public DbSet<Cliente>? Clientes { get; set; }
+
 		public DbSet<Producto>? Productos { get; set; }
 
 		public DbSet<Venta>? Ventas { get; set; }
@@ -19,6 +21,7 @@ namespace Store.Infraestructura.Contextos {
 		protected override void OnModelCreating(ModelBuilder builder) {
 			base.OnModelCreating(builder);
 
+			builder.ApplyConfiguration(new ClienteConfig());
 			builder.ApplyConfiguration(new ProductoConfig());
 			builder.ApplyConfiguration(new VentaConfig());
 			builder.ApplyConfiguration(new VentaDetalleConfig());
