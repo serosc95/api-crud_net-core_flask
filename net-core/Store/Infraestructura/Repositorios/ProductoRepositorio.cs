@@ -45,6 +45,10 @@ namespace Store.Infraestructura.Repositorios {
 			return db.Productos.ToList();
 		}
 
+		public List<Producto> ListarPagination(int pagination) {
+			return db.Productos.ToList();
+		}
+
 		public Producto SeleccionarPorID(Guid entidadId) {
 			var productoSeleccionado = db.Productos.Where(c => c.productoId == entidadId).FirstOrDefault();
 			return productoSeleccionado;
